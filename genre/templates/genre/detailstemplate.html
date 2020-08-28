@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'genre/base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{genreobj.collection_name}}</title>
+</head>
+<body>
+{% block content %}
+    <!---{ % for pieceobj in Pitem % } (this is for render fn where Pitem is the variable in Views.py for list of items in Pitem Class))--->
+    {% for pieceobj in collection.piece_set.all %}
+            <div align="center">
+                <img src="{{pieceobj.piececover}}" height="300" width="400">
+                <h2>{{pieceobj.title}}-{{pieceobj.artist}}</h2>
+                <h3>{{pieceobj.type}}</h3>
+                <h3>{{pieceobj.year}}</h3>
+            </div>
+    {% endfor %}
+{% endblock %}
+</body>
+</html>

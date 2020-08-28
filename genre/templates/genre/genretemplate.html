@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'genre/base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Genre</title>
+</head>
+<body>
+
+{% block content %}
+       <!-- { %for genreobj in all_collection  all_collection % } is variable in Views.py for the list of items/objects in Collection class-->
+       {% for genreobj in object_list %}
+            <div align="center">
+                <img src="{{genreobj.collcover}}" height="300" width="400">
+                <h2><a href="/genre/{{genreobj.id}}">{{genreobj.collection_name}}</a> </h2>
+                <h3>{{genreobj.description}}</h3>
+            </div>
+       {% endfor %}
+{% endblock %}
+</body>
+</html>
